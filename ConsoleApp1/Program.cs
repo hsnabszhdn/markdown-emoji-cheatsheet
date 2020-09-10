@@ -41,6 +41,8 @@ public class Program
     {
         var result = new List<string>
         {
+            "If you see `unordered` somewhere, any item after that is not in the write place and need to be replaced. Please see the [How to change](https://github.com/itecompro/markdown-emoji-cheatsheet#how-to-change).",
+            "",
             "- [Activities](#Activities)",
             "- [Flags](#Flags)",
             "- [Food](#Food)",
