@@ -6,11 +6,12 @@ using System.Linq;
 
 public class Program
 {
-    // This file will be the full list of all emojis from https://api.github.com/emojis whenever we want to update the list
-    private static readonly IEnumerable<string> codes = File.ReadAllLines("Categories/Codes.txt");
+    // This file is manually created from https://api.github.com/emojis whenever we want to update the list
+    // Last update was from v8 of the api
+    private static readonly IEnumerable<string> codes = File.ReadAllLines("Files/Codes.txt");
 
     // Categories
-    private static readonly string path = "Categories";
+    private static readonly string path = "Files/Categories";
     private static readonly IEnumerable<string> activities = File.ReadAllLines($"{path}/Activities.txt");
     private static readonly IEnumerable<string> flags = File.ReadAllLines($"{path}/Flags.txt");
     private static readonly IEnumerable<string> food = File.ReadAllLines($"{path}/Food.txt");
@@ -22,7 +23,7 @@ public class Program
 
     public static void Main()
     {
-        GenerateOutput();
+        GenerateOutputForWiki();
     }
 
     private static void GenerateUncategorizedCodes()
@@ -33,10 +34,10 @@ public class Program
             if (!activities.Union(flags).Union(food).Union(nature).Union(objects).Union(people).Union(places).Union(symbols).Contains(code))
                 uncategorizedCodes.Add(code);
 
-        File.WriteAllLines($"{path}/UncategorizedCodes.txt", uncategorizedCodes);
+        File.WriteAllLines($"Files/UncategorizedCodes.txt", uncategorizedCodes);
     }
 
-    private static void GenerateOutput()
+    private static void GenerateOutputForWiki()
     {
         var result = new List<string>
         {

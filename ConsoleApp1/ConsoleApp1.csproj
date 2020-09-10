@@ -112,28 +112,31 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Categories\Activities.txt">
+    <Content Include="Files\Categories\Activities.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Categories\Flags.txt">
+    <Content Include="Files\Codes.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Categories\Food.txt">
+    <Content Include="Files\Categories\Flags.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Categories\Nature.txt">
+    <Content Include="Files\Categories\Food.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Categories\Objects.txt">
+    <Content Include="Files\Categories\Nature.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Categories\People.txt">
+    <Content Include="Files\Categories\Objects.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Categories\Places.txt">
+    <Content Include="Files\Categories\People.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Categories\Symbols.txt">
+    <Content Include="Files\Categories\Places.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\Categories\Symbols.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
