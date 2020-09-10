@@ -144,7 +144,6 @@ girl
 man
 woman
 blonde_woman
-blonde_man
 older_man
 older_woman
 man_with_gua_pi_mao
