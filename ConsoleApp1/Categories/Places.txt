@@ -117,3 +117,15 @@ night_with_stars
 milky_way
 bridge_at_night
 foggy
+unordered
+rowboat
+sled
+red_car
+auto_rickshaw
+basecamp
+basecampy
+bicyclist
+hindu_temple
+ringed_planet
+sailboat
+skateboard
