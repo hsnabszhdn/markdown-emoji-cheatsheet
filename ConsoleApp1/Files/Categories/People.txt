@@ -349,15 +349,20 @@ person_curly_hair
 massage
 massage_woman
 massage_man
+manual_wheelchair
 person_in_manual_wheelchair
 woman_in_manual_wheelchair
 man_in_manual_wheelchair
+motorized_wheelchair
 person_in_motorized_wheelchair
 woman_in_motorized_wheelchair
 man_in_motorized_wheelchair
 person_with_probing_cane
 woman_with_probing_cane
 man_with_probing_cane
+probing_cane
+mechanical_arm
+mechanical_leg
 lotus_position
 lotus_position_woman
 lotus_position_man
@@ -427,6 +432,7 @@ family_man_girl_girl
 womans_clothes
 shirt
 tshirt
+coat
 jeans
 shorts
 necktie
@@ -438,6 +444,7 @@ scarf
 kimono
 sari
 lab_coat
+safety_vest
 socks
 high_heel
 sandal
@@ -459,6 +466,8 @@ pouch
 purse
 handbag
 briefcase
+luggage
+goggles
 eyeglasses
 dark_sunglasses
 closed_umbrella
