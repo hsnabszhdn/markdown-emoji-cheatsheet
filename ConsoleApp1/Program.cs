@@ -46,7 +46,7 @@ namespace ConsoleApp1
             
             var result = new List<string>
             {
-                ":warning: If you see any emoji in the wrong categories or in the wrong order/place, please see [How to change](https://github.com/itecompro/markdown-emoji-cheatsheet#how-to-change). It will be fixed.",
+                ":warning: If you see any emojis in the wrong category or in the wrong order/place, please see [How to change](https://github.com/itecompro/markdown-emoji-cheatsheet#how-to-change). It will be fixed.",
                 "",
                 "## Categories",
             };
