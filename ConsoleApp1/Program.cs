@@ -10,21 +10,8 @@ namespace ConsoleApp1
     class Program
     {
         private static readonly string filesDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Files");
-
-        // This file is manually created from https://api.github.com/emojis whenever we want to update the list
-        // Last update was from v8 of the api
-        private static readonly IEnumerable<string> codes = File.ReadAllLines($"{filesDirectory}/Codes.txt");
-
-        // Categories
         private static readonly string categoriesDirectory = Path.Combine(filesDirectory, "Categories");
-        private static readonly IEnumerable<string> activities = File.ReadAllLines($"{categoriesDirectory}/Activities.txt");
-        private static readonly IEnumerable<string> flags = File.ReadAllLines($"{categoriesDirectory}/Flags.txt");
-        private static readonly IEnumerable<string> food = File.ReadAllLines($"{categoriesDirectory}/Food.txt");
-        private static readonly IEnumerable<string> nature = File.ReadAllLines($"{categoriesDirectory}/Nature.txt");
-        private static readonly IEnumerable<string> objects = File.ReadAllLines($"{categoriesDirectory}/Objects.txt");
-        private static readonly IEnumerable<string> people = File.ReadAllLines($"{categoriesDirectory}/People.txt");
-        private static readonly IEnumerable<string> places = File.ReadAllLines($"{categoriesDirectory}/Places.txt");
-        private static readonly IEnumerable<string> symbols = File.ReadAllLines($"{categoriesDirectory}/Symbols.txt");
+        
 
         static void Main(string[] args)
         {
@@ -33,75 +20,64 @@ namespace ConsoleApp1
 
         static void GenerateUncategorizedCodes()
         {
-            var uncategorizedCodes = new List<string>();
+            // This file is manually created from https://api.github.com/emojis whenever we want to update the list
+            // Last update was from v8 of the api
+            var codes = File.ReadAllLines(Path.Combine(filesDirectory, "Codes.txt"));
 
+            var categorizedCodes = new List<string>();
+            var fileInfos = Directory.GetFiles(categoriesDirectory).Select(fileName => new FileInfo(fileName));
+            foreach (var fileInfo in fileInfos)
+            {
+                var lines = File.ReadAllLines(fileInfo.FullName);
+                categorizedCodes.AddRange(lines);
+            }
+
+            var uncategorizedCodes = new List<string>();
             foreach (var code in codes)
-                if (!activities.Union(flags).Union(food).Union(nature).Union(objects).Union(people).Union(places).Union(symbols).Contains(code))
+                if (!categorizedCodes.Contains(code))
                     uncategorizedCodes.Add(code);
 
-            File.WriteAllLines($"{filesDirectory}/UncategorizedCodes.txt", uncategorizedCodes);
+            File.WriteAllLines(Path.Combine(filesDirectory, "UncategorizedCodes.txt"), uncategorizedCodes);
         }
 
         static void GenerateOutputForWiki()
         {
+            var fileInfos = Directory.GetFiles(categoriesDirectory).Select(fileName => new FileInfo(fileName));
+            
             var result = new List<string>
             {
                 "If you see `unordered` somewhere, any items after that are not in the right place and need to be replaced. Please see [How to change](https://github.com/itecompro/markdown-emoji-cheatsheet#how-to-change).",
                 "",
-                "- [Activities](#Activities)",
-                "- [Flags](#Flags)",
-                "- [Food](#Food)",
-                "- [Nature](#Nature)",
-                "- [Objects](#Objects)",
-                "- [People](#People)",
-                "- [Places](#Places)",
-                "- [Symbols](#Symbols)",
-                ""
+                "# Categories",
             };
 
-            result.Add("# Activities");
-            result.Add("");
-            result.AddRange(GetTable(activities));
-            result.Add("");
-
-            result.Add("# Flags");
-            result.Add("");
-            result.AddRange(GetTable(flags));
+            foreach (var fileInfo in fileInfos)
+            {
+                var name = GetFileNameWithoutExtension(fileInfo);
+                result.Add($"- [{name}](#{name})");
+            }
             result.Add("");
 
-            result.Add("# Food");
-            result.Add("");
-            result.AddRange(GetTable(food));
-            result.Add("");
+            foreach (var fileInfo in fileInfos)
+            {
+                var name = GetFileNameWithoutExtension(fileInfo);
+                result.Add($"## {name}");
+                result.Add("");
 
-            result.Add("# Nature");
-            result.Add("");
-            result.AddRange(GetTable(nature));
-            result.Add("");
+                var lines = File.ReadAllLines(fileInfo.FullName);
+                result.AddRange(GetTable(lines));
+                
+                result.Add("");
+            }
 
-            result.Add("# Objects");
-            result.Add("");
-            result.AddRange(GetTable(objects));
-            result.Add("");
-
-            result.Add("# People");
-            result.Add("");
-            result.AddRange(GetTable(people));
-            result.Add("");
-
-            result.Add("# Places");
-            result.Add("");
-            result.AddRange(GetTable(places));
-            result.Add("");
-
-            result.Add("# Symbols");
-            result.Add("");
-            result.AddRange(GetTable(symbols));
-            result.Add("");
-
-            var wikiDirectory = $"{filesDirectory}/Wiki";
+            var wikiDirectory = Path.Combine(filesDirectory, "Wiki");
             Directory.CreateDirectory(wikiDirectory);
-            File.WriteAllLines($"{wikiDirectory}/Home.md", result);
+            File.WriteAllLines(Path.Combine(wikiDirectory, "Home.md"), result);
+        }
+
+        static string GetFileNameWithoutExtension(FileInfo fileInfo)
+        {
+            return fileInfo.Name.Substring(0, fileInfo.Name.IndexOf('.'));
         }
 
         static IEnumerable<string> GetTable(IEnumerable<string> codes)
