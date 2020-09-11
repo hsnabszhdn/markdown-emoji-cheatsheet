@@ -20,9 +20,7 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
-    - name: Change Directory
-      run: cd "ConsoleApp1/bin/Release/netcoreapp3.1"
     - name: Run
-      run: dotnet ConsoleApp1.dll
+      run: dotnet "ConsoleApp1/bin/Release/netcoreapp3.1/ConsoleApp1.dll"
     - name: Display
-      run: type "Files\Home.md"
+      run: type "ConsoleApp1\bin\Release\netcoreapp3.1\Files\Home.md"
