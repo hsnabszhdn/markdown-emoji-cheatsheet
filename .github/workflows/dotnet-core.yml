@@ -8,7 +8,7 @@ on:
 jobs:
   build:
 
-    runs-on: windows-2019
+    runs-on: ubuntu-18.04
 
     steps:
     - uses: actions/checkout@v2
@@ -22,11 +22,9 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Run
       run: dotnet "ConsoleApp1/bin/Release/netcoreapp3.1/ConsoleApp1.dll"
-    - name: Display
-      run: type "ConsoleApp1\bin\Release\netcoreapp3.1\Files\Home.md"
     - name: Publish
       uses: SwiftDocOrg/github-wiki-publish-action@1.0.0
       with:
-        path: "ConsoleApp1/bin/Release/netcoreapp3.1/Files/Wiki"
+        path: "ConsoleApp1/bin/Release/netcoreapp3.1/Files/Wiki/"
       env:
-        GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+        GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
