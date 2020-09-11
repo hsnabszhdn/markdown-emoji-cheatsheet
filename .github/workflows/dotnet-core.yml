@@ -27,4 +27,4 @@ jobs:
       with:
         path: "ConsoleApp1/bin/Release/netcoreapp3.1/Files/Wiki"
       env:
-        GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+        GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
