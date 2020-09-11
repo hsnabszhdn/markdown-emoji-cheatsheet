@@ -25,6 +25,6 @@ jobs:
     - name: Publish
       uses: SwiftDocOrg/github-wiki-publish-action@1.0.0
       with:
-        path: "ConsoleApp1\\bin\\Release\\netcoreapp3.1\\Files\\Wiki"
+        path: "ConsoleApp1/bin/Release/netcoreapp3.1/Files/Wiki/"
       env:
         GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
