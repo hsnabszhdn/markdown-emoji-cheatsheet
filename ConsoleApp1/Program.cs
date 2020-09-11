@@ -3,25 +3,28 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Linq;
+using System.Reflection;
 
 namespace ConsoleApp1
 {
     class Program
     {
+        private static readonly string filesDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Files");
+
         // This file is manually created from https://api.github.com/emojis whenever we want to update the list
         // Last update was from v8 of the api
-        private static readonly IEnumerable<string> codes = File.ReadAllLines("Files/Codes.txt");
+        private static readonly IEnumerable<string> codes = File.ReadAllLines($"{filesDirectory}/Codes.txt");
 
         // Categories
-        private static readonly string path = "Files/Categories";
-        private static readonly IEnumerable<string> activities = File.ReadAllLines($"{path}/Activities.txt");
-        private static readonly IEnumerable<string> flags = File.ReadAllLines($"{path}/Flags.txt");
-        private static readonly IEnumerable<string> food = File.ReadAllLines($"{path}/Food.txt");
-        private static readonly IEnumerable<string> nature = File.ReadAllLines($"{path}/Nature.txt");
-        private static readonly IEnumerable<string> objects = File.ReadAllLines($"{path}/Objects.txt");
-        private static readonly IEnumerable<string> people = File.ReadAllLines($"{path}/People.txt");
-        private static readonly IEnumerable<string> places = File.ReadAllLines($"{path}/Places.txt");
-        private static readonly IEnumerable<string> symbols = File.ReadAllLines($"{path}/Symbols.txt");
+        private static readonly string categoriesDirectory = Path.Combine(filesDirectory, "Categories");
+        private static readonly IEnumerable<string> activities = File.ReadAllLines($"{categoriesDirectory}/Activities.txt");
+        private static readonly IEnumerable<string> flags = File.ReadAllLines($"{categoriesDirectory}/Flags.txt");
+        private static readonly IEnumerable<string> food = File.ReadAllLines($"{categoriesDirectory}/Food.txt");
+        private static readonly IEnumerable<string> nature = File.ReadAllLines($"{categoriesDirectory}/Nature.txt");
+        private static readonly IEnumerable<string> objects = File.ReadAllLines($"{categoriesDirectory}/Objects.txt");
+        private static readonly IEnumerable<string> people = File.ReadAllLines($"{categoriesDirectory}/People.txt");
+        private static readonly IEnumerable<string> places = File.ReadAllLines($"{categoriesDirectory}/Places.txt");
+        private static readonly IEnumerable<string> symbols = File.ReadAllLines($"{categoriesDirectory}/Symbols.txt");
 
         static void Main(string[] args)
         {
@@ -36,7 +39,7 @@ namespace ConsoleApp1
                 if (!activities.Union(flags).Union(food).Union(nature).Union(objects).Union(people).Union(places).Union(symbols).Contains(code))
                     uncategorizedCodes.Add(code);
 
-            File.WriteAllLines($"Files/UncategorizedCodes.txt", uncategorizedCodes);
+            File.WriteAllLines($"{filesDirectory}/UncategorizedCodes.txt", uncategorizedCodes);
         }
 
         static void GenerateOutputForWiki()
@@ -96,7 +99,7 @@ namespace ConsoleApp1
             result.AddRange(GetTable(symbols));
             result.Add("");
 
-            File.WriteAllLines($"{path}/Home.md", result);
+            File.WriteAllLines($"{filesDirectory}/Home.md", result);
         }
 
         static IEnumerable<string> GetTable(IEnumerable<string> codes)
