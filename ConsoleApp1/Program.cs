@@ -48,7 +48,7 @@ namespace ConsoleApp1
             {
                 ":warning: If you see any emoji in the wrong categories or in the wrong order/place, please see [How to change](https://github.com/itecompro/markdown-emoji-cheatsheet#how-to-change). It will be fixed.",
                 "",
-                "# Categories",
+                "## Categories",
             };
 
             foreach (var fileInfo in fileInfos)
@@ -61,7 +61,7 @@ namespace ConsoleApp1
             foreach (var fileInfo in fileInfos)
             {
                 var name = GetFileNameWithoutExtension(fileInfo);
-                result.Add($"## {name}");
+                result.Add($"### {name}");
                 result.Add("");
 
                 var lines = File.ReadAllLines(fileInfo.FullName);
