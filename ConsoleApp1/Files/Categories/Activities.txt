@@ -58,6 +58,7 @@ bouncing_ball_person
 bouncing_ball_woman
 bouncing_ball_man
 horse_racing
+bicyclist
 biking_woman
 biking_man
 mountain_bicyclist

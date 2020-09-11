@@ -20,6 +20,8 @@ heart_decoration
 atom
 electron
 octocat
+basecamp
+basecampy
 peace_symbol
 latin_cross
 star_and_crescent

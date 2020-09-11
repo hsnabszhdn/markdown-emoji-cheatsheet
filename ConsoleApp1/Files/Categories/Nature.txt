@@ -136,6 +136,7 @@ sunflower
 blossom
 cherry_blossom
 hibiscus
+ringed_planet
 earth_americas
 earth_africa
 earth_asia
