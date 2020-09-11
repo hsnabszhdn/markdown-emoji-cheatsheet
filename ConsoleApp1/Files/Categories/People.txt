@@ -346,6 +346,8 @@ haircut
 haircut_woman
 haircut_man
 person_curly_hair
+curly_haired_woman
+curly_haired_man
 massage
 massage_woman
 massage_man
