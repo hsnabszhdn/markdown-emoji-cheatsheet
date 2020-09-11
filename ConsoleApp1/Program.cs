@@ -46,7 +46,7 @@ namespace ConsoleApp1
             
             var result = new List<string>
             {
-                "If you see `unordered` somewhere, any items after that are not in the right place and need to be replaced. Please see [How to change](https://github.com/itecompro/markdown-emoji-cheatsheet#how-to-change).",
+                ":warning: If you see any emoji in the wrong categories or in the wrong order/place, please see [How to change](https://github.com/itecompro/markdown-emoji-cheatsheet#how-to-change). It will be fixed.",
                 "",
                 "# Categories",
             };
