@@ -63,6 +63,7 @@ shallow_pan_of_food
 spaghetti
 falafel
 ramen
+bowl_with_spoon
 stew
 canned_food
 mate

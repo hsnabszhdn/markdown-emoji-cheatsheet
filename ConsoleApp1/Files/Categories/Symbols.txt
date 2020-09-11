@@ -298,6 +298,8 @@ yellow_square
 left_speech_bubble
 diving_mask
 dna
+microbe
 lacrosse
 guide_dog
 service_dog
+shipit

@@ -195,7 +195,6 @@ drop_of_blood
 firecracker
 flying_disc
 flying_saucer
-foot
 goggles
 knife
 lantern
@@ -228,3 +227,6 @@ probing_cane
 safety_vest
 soap
 stethoscope
+bone
+brain
+fire_extinguisher

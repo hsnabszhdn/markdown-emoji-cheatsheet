@@ -35,6 +35,7 @@ woman_cartwheeling
 man_cartwheeling
 basketball_woman
 basketball_man
+handball_person
 woman_playing_handball
 man_playing_handball
 golfing_woman
@@ -42,8 +43,10 @@ golfing_man
 climbing
 climbing_woman
 climbing_man
+surfer
 surfing_woman
 surfing_man
+swimmer
 swimming_woman
 swimming_man
 water_polo
@@ -73,6 +76,7 @@ reminder_ribbon
 ticket
 tickets
 circus_tent
+juggling_person
 woman_juggling
 man_juggling
 performing_arts
