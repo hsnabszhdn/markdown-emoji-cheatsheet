@@ -349,6 +349,8 @@ person_curly_hair
 massage
 massage_woman
 massage_man
+guide_dog
+service_dog
 manual_wheelchair
 person_in_manual_wheelchair
 woman_in_manual_wheelchair
@@ -468,8 +470,10 @@ handbag
 briefcase
 luggage
 goggles
+diving_mask
 eyeglasses
 dark_sunglasses
 closed_umbrella
 open_umbrella
+shipit
 trollface

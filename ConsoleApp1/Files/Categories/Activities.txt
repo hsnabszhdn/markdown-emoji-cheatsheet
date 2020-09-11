@@ -12,8 +12,8 @@ badminton
 goal_net
 ice_hockey
 field_hockey
-cricket
 cricket_game
+lacrosse
 golf
 bow_and_arrow
 fishing_pole_and_fish

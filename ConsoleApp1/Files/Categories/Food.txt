@@ -2,6 +2,7 @@
 green_apple
 apple
 pear
+orange
 tangerine
 lemon
 banana
