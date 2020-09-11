@@ -99,7 +99,7 @@ namespace ConsoleApp1
             result.AddRange(GetTable(symbols));
             result.Add("");
 
-            File.WriteAllLines($"{filesDirectory}/Home.md", result);
+            File.WriteAllLines($"{filesDirectory}/Wiki/Home.md", result);
         }
 
         static IEnumerable<string> GetTable(IEnumerable<string> codes)
