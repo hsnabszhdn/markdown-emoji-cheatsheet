@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Linq;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace ConsoleApp1
 {
@@ -72,7 +73,10 @@ namespace ConsoleApp1
 
             var wikiDirectory = Path.Combine(filesDirectory, "Wiki");
             Directory.CreateDirectory(wikiDirectory);
+            
             File.WriteAllLines(Path.Combine(wikiDirectory, "Home.md"), result);
+
+            Process.Start("explorer.exe", wikiDirectory);
         }
 
         static string GetFileNameWithoutExtension(FileInfo fileInfo)
