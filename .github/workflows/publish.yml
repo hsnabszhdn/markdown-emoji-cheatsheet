@@ -3,7 +3,7 @@ name: Publish
 on:
   push:
     branches: 
-      - master
+    - master
 
 jobs:
   Publish:
@@ -11,16 +11,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
+    
     - name: Install Dependencies
       run: dotnet restore
+    
     - name: Build
       run: dotnet build --configuration Release --no-restore
+    
     - name: Run
       run: dotnet "ConsoleApp1/bin/Release/netcoreapp3.1/ConsoleApp1.dll"
+    
     - name: Publish
       uses: SwiftDocOrg/github-wiki-publish-action@1.0.0
       with:
