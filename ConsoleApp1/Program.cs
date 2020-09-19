@@ -47,7 +47,7 @@ namespace ConsoleApp1
             
             var result = new List<string>
             {
-                ":yellow_circle: For any changes, please open an issue.",
+                ":yellow_circle: For any changes, please open an issue!",
                 "",
                 "## Categories",
             };
