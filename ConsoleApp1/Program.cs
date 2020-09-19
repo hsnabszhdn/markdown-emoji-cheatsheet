@@ -76,7 +76,7 @@ namespace ConsoleApp1
             
             File.WriteAllLines(Path.Combine(wikiDirectory, "Home.md"), result);
 
-            Process.Start("explorer.exe", wikiDirectory);
+            //Process.Start("explorer.exe", wikiDirectory);
         }
 
         static string GetFileNameWithoutExtension(FileInfo fileInfo)
