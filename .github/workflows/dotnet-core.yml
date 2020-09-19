@@ -20,6 +20,8 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Run
       run: dotnet "ConsoleApp1/bin/Release/netcoreapp3.1/ConsoleApp1.dll"
+    - name: Print
+      run: cat "ConsoleApp1/bin/Release/netcoreapp3.1/Files/Wiki/Home.md"
     - name: Publish
       uses: SwiftDocOrg/github-wiki-publish-action@1.0.0
       with:
